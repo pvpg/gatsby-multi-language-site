@@ -42,7 +42,7 @@ export const query = graphql`
       type
       data {
         body {
-          ... on PrismicSliceType {
+          ... on PrismicSlice {
             id
             slice_type
             slice_label
