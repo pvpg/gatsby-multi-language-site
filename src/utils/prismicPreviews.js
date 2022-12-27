@@ -8,7 +8,6 @@ import * as React from 'react'
  */
 
 import { prismicRepo } from '../../prismic-configuration'
-import { linkResolver } from './linkResolver'
 
 /**
  * Prismic preview configuration for each repository in your app. This set of
@@ -22,7 +21,6 @@ import { linkResolver } from './linkResolver'
 export const repositoryConfigs = [
   {
     repositoryName: prismicRepo,
-    linkResolver,
     componentResolver: {
       page: React.lazy(() => import("../templates/page.js")),
       homepage: React.lazy(() => import('../templates/homepage')),

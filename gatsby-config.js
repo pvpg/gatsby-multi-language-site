@@ -5,6 +5,17 @@ dotenv.config()
 
 const prismicConfig = require('./prismic-configuration')
 
+const routes = [
+  {
+    type: 'homepage',
+    path: '/:lang?',
+  },
+  {
+    type: 'page',
+    path: '/page/:lang?/:uid',
+  },
+]
+
 module.exports = {
   siteMetadata: {
     title: 'Multi-language site',
@@ -16,7 +27,7 @@ module.exports = {
       options: {
         repositoryName: prismicConfig.prismicRepo,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-        linkResolver: require('./src/utils/linkResolver').linkResolver,
+        routes,
         schemas: {
           homepage: require('./custom_types/homepage.json'),
           page: require('./custom_types/page.json'),
@@ -29,6 +40,7 @@ module.exports = {
       options: {
         repositoryName: prismicConfig.prismicRepo,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        routes,
       },
     },
     'gatsby-plugin-image',
